@@ -8,12 +8,14 @@
                 </div>
 
                 <h2 class="col-12 text-center text-white my-3 " style="font-family: 'Playfair Display', serif; font-weight: 700;">
-                    Registro de equipamento
+                   {{isEdit?"Atualização do registro":"Registro do equipamento"}}
                 </h2>
+                <div class="col-12" id="returnButton">
+                    <button  class="btn mt-3 px-5 mb-0 btn-primary" style="font-size:20px; margin-right: 2em;" [routerLink]="['/lista']"  type="button">Voltar para a Lista</button>
+                </div>
             </div>
         </div>
          <div class="card-body" style="background-color:rgb(218, 218, 218)">
-           <!--<p *ngIf="message" class="h5 btn-danger p-3 text-center">{{message}}</p> -->
             <form [formGroup]="formEquipamento" class="px-0 px-md-3 px-lg-5 pt-3 pb-2 form-row row">
                 <div class="col-12 col-sm-3 pb-4">
                     <label class="h4 text-bold">Número se Série</label>
@@ -48,7 +50,7 @@
                     <input class=" form-control" placeholder="Observações" formControlName="obs" type="text" />
                 </div>
                 <div class="container col-12 pb-4">
-                    <button class="btn mt-3 px-5 mb-0 btn-taesa" style="font-size:30px;"  (click)="submitCadastro()" [ngClass]="{'disabled': !formEquipamento.valid}"  type="submit">Cadastrar</button>
+                    <button class="btn mt-3 px-5 mb-0 btn-taesa" style="font-size:30px;"  (click)="submitCadastro()" [ngClass]="{'disabled': !formEquipamento.valid}"  type="submit">{{isEdit?"Atualizar":"Cadastrar"}}</button>
                 </div>
             </form>
         </div> 

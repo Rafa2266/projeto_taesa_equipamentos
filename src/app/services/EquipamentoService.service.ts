@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Equipamento } from '../models/Equipamento';
+import { take } from 'rxjs/operators';
+
 @Injectable({
     providedIn: 'root'
   })
@@ -19,6 +21,24 @@ import { Equipamento } from '../models/Equipamento';
       equipamentoCreate(equipamento:Equipamento){
         return this.http
         .post(`${this.API}create`,equipamento)
+        .pipe();
+      }
+
+      equipamentoUpdate(equipamento:Equipamento){
+        return this.http
+        .put(`${this.API}update/${equipamento.id}`,equipamento)
+        .pipe();
+      }
+
+      equipamentoGetById(id:number){
+        return this.http
+        .get(`${this.API}edit/${id}`)
+        .pipe(take(1));
+      }
+
+      equipamentoDelete(id:number){
+        return this.http
+        .delete(`${this.API}delete/${id}`)
         .pipe();
       }
   }
