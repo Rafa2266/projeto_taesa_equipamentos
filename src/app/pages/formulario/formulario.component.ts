@@ -61,7 +61,7 @@ export class FormularioComponent {
       fab: new FormControl(equipamento.fab, Validators.required),
       tipo: new FormControl(equipamento.tipo, Validators.required),
       sub_estacao: new FormControl(equipamento.sub_estacao, Validators.required),
-      nivel_tensao: new FormControl(equipamento.nivel_tensao, Validators.required),
+      nivel_tensao: new FormControl(equipamento.nivel_tensao, [Validators.required,Validators.min(0)]),
       data_entrada_operacao: new FormControl(equipamento.data_entrada_operacao, Validators.required),
       status: new FormControl(equipamento.status==0, Validators.required),
       obs: new FormControl(equipamento.obs),

@@ -23,3 +23,7 @@ img{
 .disabled{
     background-color: rgba(0, 149, 255, 0.572);
 }
+
+.logo{
+    width:100%;
+}

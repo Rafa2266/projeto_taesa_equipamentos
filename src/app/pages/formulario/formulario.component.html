@@ -1,13 +1,13 @@
 
 <div class="container-main">
     <div class="card col-12 col-md-6 col-xl-4 mt-3 shadow-lg">
-        <div class="card-header px-0" style="background-color: rgb(235, 103, 217);">
+        <div class="card-header px-0" style="background-color:beige">
             <div class="row">
                 <div class="container col-12 px-0">
                     <img class="logo" src="../../../assets/img/logo.png" />
                 </div>
 
-                <h2 class="col-12 text-center text-white my-3 " style="font-family: 'Playfair Display', serif; font-weight: 700;">
+                <h2 class="col-12 text-center text-black my-3 " style="font-family: 'Playfair Display', serif; font-weight: 700;">
                    {{isEdit?"Atualização do registro":"Registro do equipamento"}}
                 </h2>
                 <div class="col-12" id="returnButton">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-12 col-sm-3 pb-4">
                     <label class="h4 text-bold">Nível de tensão</label>
-                    <input class=" form-control" formControlName="nivel_tensao" type="number" />
+                    <input class=" form-control" formControlName="nivel_tensao" min="0" type="number" />
                 </div>
                 <div class="col-12 col-sm-3 pb-4">
                     <label class="h4 text-bold" style="margin-right:0.5em;">Status:</label>

@@ -9,12 +9,15 @@
 }
 
 .disabled{
-     background-color: rgba(235, 103, 217, 0.37) !important;
+    background-color: rgba(0, 84, 229, 0.38) !important;
 }
 .btn-taesa{
-    background-color: rgb(235, 103, 217);
+    background-color: rgb(47, 118, 240);
 }
 #returnButton{
     display: flex;
     justify-content: right;
+}
+.logo{
+    width:30%;
 }
