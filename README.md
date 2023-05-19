@@ -9,11 +9,11 @@ Este projeto consiste em um aplicativo que tem a função de registrar equipamen
 ### Tela de registro de equipamento
 ![image](https://github.com/Rafa2266/projeto_taesa_equipamentos/assets/55034158/61c0591f-882a-4b05-acb1-ec42101a02a5)
 ### Tela de exibição de equipamentos
-#### Paginação
+#### Paginação:
 ![image](https://github.com/Rafa2266/projeto_taesa_equipamentos/assets/55034158/1cfb9cac-75b0-4e4e-a661-00d1ad19055a)
-#### Ordenação
+#### Ordenação:
 ![image](https://github.com/Rafa2266/projeto_taesa_equipamentos/assets/55034158/d99e7cfb-7956-4333-8172-a78dfcf0a80d)
-#### Filtro
+#### Filtro:
 ![image](https://github.com/Rafa2266/projeto_taesa_equipamentos/assets/55034158/20f9fd79-294b-436c-94fb-0a1c9e462462)
 ## Development server
 
