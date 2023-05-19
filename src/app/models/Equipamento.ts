@@ -14,4 +14,5 @@ export class Modifiers{
     tipoFilter:string='';
     offset:number=0;
     order:string='';
+    descOrasc='desc'
 }

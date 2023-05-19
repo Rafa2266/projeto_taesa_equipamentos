@@ -44,6 +44,7 @@ export class ListaComponent {
           (response) => {
             this.equipamentos=new Array<Equipamento>();
             Object.assign(this.equipamentos, response);
+            this.numeroPagina= this.modifiers.offset/5+1;
             if(this.equipamentos.length>this.limiteDePaginas){
               this.equipamentos.splice(this.limiteDePaginas,1);
               this.lastPage=false;
@@ -93,19 +94,30 @@ export class ListaComponent {
         this.modifiers.fabFilter=this.formFilter.value.fabFilter;
         this.modifiers.tipoFilter=this.formFilter.value.tipoFilter;
         this.modifiers.offset=0;
-        this.numeroPagina=1;
+        //this.numeroPagina=1;
         this.loadEquipamentos();
       }
 
       ordenarLista(coluna:string){
-        this.modifiers.order=this.modifiers.order==coluna?"":coluna;
+        //this.modifiers.order=this.modifiers.order==coluna?"":coluna;
+        if(this.modifiers.order==coluna){
+          if(this.modifiers.descOrasc=='asc'){
+            this.modifiers.descOrasc='desc'
+          }else{
+            this.modifiers.order="";
+            this.modifiers.descOrasc='asc';
+          }
+        }else{
+            this.modifiers.order=coluna;
+            this.modifiers.descOrasc='asc';
+        }
         this.loadEquipamentos();
       }
       proximaPagina(){
         if(!this.lastPage){
           this.modifiers.offset+=this.limiteDePaginas
           this.loadEquipamentos();
-          this.numeroPagina++;
+          //this.numeroPagina++;
         }
 
       }
@@ -113,7 +125,7 @@ export class ListaComponent {
         if(this.numeroPagina>1){
           this.modifiers.offset-=this.limiteDePaginas
           this.loadEquipamentos();
-          this.numeroPagina--;
+          //this.numeroPagina--;
         }
       }
 
