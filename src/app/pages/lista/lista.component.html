@@ -1,1 +1,81 @@
-<p>lista works!</p>
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(235, 103, 217);">
+    
+    <a class="navbar-brand" style="margin-right:2em;">
+        <img class="" src="../../../assets/img/logo.png" class="logo">
+    </a>
+</nav>
+<h2 class="mt-3 mb-2 mx-4 title-page">Equipamentos</h2>
+<hr class="mt-2" style="border: 1px solid #444444; width:100%; " />
+<div class="col-12 mb-2 " id="returnButton" >
+    <button  class="btn"  [routerLink]="['/cadastro']" style="background-color: aquamarine;margin-right: 2em;font-weight: 500;">
+       Registrar equipamento<span class="ml-2 fa fa-plus"></span>
+    </button>
+</div>
+<div class="row px-2 mt-3 ">
+    <div class="col-12" *ngIf="equipamentos.length>0">
+        <div class="list-group">
+            <div class="list-group-item first-item list-group title_column" >
+                <div class="row " style="font-weight: 500;">
+                    <div class="col-1 list-group-item title_column">
+                        <div>Número se Série</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Fabricante</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Tipo</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Subestação</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Data de entrada</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Nível de tensão</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Status</div>
+                    </div>
+                    <div class="col-3 list-group-item title_column">
+                        <div>Observações</div>
+                    </div>
+                    <div class="col-1 list-group-item title_column">
+                        <div>Opções</div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="list-group-item list-group-item-action " *ngFor="let equipamento of equipamentos">
+                <div class="row">
+                    <div class="col-1">
+                        <p class="">{{ equipamento.num_serie }}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{ equipamento.fab}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{ equipamento.tipo}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{ equipamento.sub_estacao}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{ equipamento.data_entrada_operacao | date:'dd/MM/yyyy'}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{ equipamento.nivel_tensao}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{ equipamento.status>1?"Ativo":"Inativo"}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="">{{ equipamento.obs}}</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

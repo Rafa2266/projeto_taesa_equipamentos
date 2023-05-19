@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    max-width: 7em;
+}
+#returnButton{
+    display: flex;
+    justify-content: right;
+}
+.title_column{
+    background-color: aquamarine;
+}

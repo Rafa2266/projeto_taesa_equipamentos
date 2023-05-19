@@ -1,1 +1,56 @@
-<p>formulario works!</p>
+
+<div class="container-main">
+    <div class="card col-12 col-md-6 col-xl-4 mt-3 shadow-lg">
+        <div class="card-header px-0" style="background-color: rgb(235, 103, 217);">
+            <div class="row">
+                <div class="container col-12 px-0">
+                    <img class="logo" src="../../../assets/img/logo.png" />
+                </div>
+
+                <h2 class="col-12 text-center text-white my-3 " style="font-family: 'Playfair Display', serif; font-weight: 700;">
+                    Registro de equipamento
+                </h2>
+            </div>
+        </div>
+         <div class="card-body" style="background-color:rgb(218, 218, 218)">
+           <!--<p *ngIf="message" class="h5 btn-danger p-3 text-center">{{message}}</p> -->
+            <form [formGroup]="formEquipamento" class="px-0 px-md-3 px-lg-5 pt-3 pb-2 form-row row">
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold">Número se Série</label>
+                    <input class="form-control" placeholder="Número de série" formControlName="num_serie" type="text" />
+                </div>
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold">Fabricante</label>
+                    <input class=" form-control" placeholder="Fabricante" maxlength="14" formControlName="fab" type="text" />
+                </div>
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold">Tipo de equipamento</label>
+                    <input class=" form-control" placeholder="Tipo de equipamento" formControlName="tipo" type="text" />
+                </div>
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold">Subestação</label>
+                    <input class=" form-control" placeholder="Subestação" formControlName="sub_estacao" type="text" />
+                </div>
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold">Data de entrada da operação</label>
+                    <input class=" form-control" formControlName="data_entrada_operacao" type="date" />
+                </div>
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold">Nível de tensão</label>
+                    <input class=" form-control" formControlName="nivel_tensao" type="number" />
+                </div>
+                <div class="col-12 col-sm-3 pb-4">
+                    <label class="h4 text-bold" style="margin-right:0.5em;">Status:</label>
+                    <input class="" formControlName="status" type="checkbox" />
+                </div>
+                <div class="col-12 pb-4">
+                    <label class="h4 text-bold">Observações</label>
+                    <input class=" form-control" placeholder="Observações" formControlName="obs" type="text" />
+                </div>
+                <div class="container col-12 pb-4">
+                    <button class="btn mt-3 px-5 mb-0 btn-taesa" style="font-size:30px;"  (click)="submitCadastro()" [ngClass]="{'disabled': !formEquipamento.valid}"  type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+</div>
