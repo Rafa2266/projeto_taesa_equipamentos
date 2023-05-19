@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Equipamento } from '../models/Equipamento';
+import { Equipamento, Modifiers } from '../models/Equipamento';
 import { take } from 'rxjs/operators';
 
 @Injectable({
@@ -12,9 +12,10 @@ import { take } from 'rxjs/operators';
 
     constructor(protected http: HttpClient) {}
 
-    equipamentoList(){
+    equipamentoList(modifiers:Modifiers){
+        console.log(modifiers)
         return this.http
-        .get(`${this.API}`)
+        .put(`${this.API}`,modifiers)
         .pipe();
       }
 

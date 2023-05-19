@@ -11,5 +11,15 @@ img{
     justify-content: right;
 }
 .title_column{
-    background-color: aquamarine;
+    background-color: rgb(127, 180, 255);
+    cursor: pointer;
+}
+.bar_column{
+    background-color: rgb(127, 180, 255);
+}
+.title_column_order{
+    background-color: rgb(8, 244, 0);
+}
+.disabled{
+    background-color: rgba(0, 149, 255, 0.572);
 }

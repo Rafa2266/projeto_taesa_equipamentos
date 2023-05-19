@@ -12,39 +12,56 @@
        Registrar equipamento<span class="ml-2 fa fa-plus"></span>
     </button>
 </div>
+<div class="col-8 mb-2 pb-2 row" style="margin-left: 1em; background-color: rgb(195, 195, 195);">
+    <h2 class="col-12" >Filtro</h2>
+    <form [formGroup]="formFilter" class="form-row row">    
+        <div class="col-5">
+            <label class="h4 text-bold">Fabricante</label>
+            <input class="form-control" placeholder="Fabricante" formControlName="fabFilter" type="text" />
+        </div>
+        <div class="col-5">
+            <label class="h4 text-bold">Tipo de Equipamento</label>
+            <input class="form-control" placeholder="Tipo de Equipamento" formControlName="tipoFilter"  type="text" />
+        </div>
+        <div class="col-2 row align-content-end">
+            <button (click)="filtrarLista()" class="btn btn-dark" type="submit">Buscar</button>
+        </div>
+    </form>
+
+</div>
 <div class="row px-2 mt-3 ">
     <div class="col-12" *ngIf="equipamentos.length>0">
         <div class="list-group">
-            <div class="list-group-item first-item list-group title_column" >
+            <div class="list-group-item first-item list-group bar_column" >
                 <div class="row " style="font-weight: 500;">
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('id')" [ngClass]="{'title_column_order':modifiers.order=='id'||modifiers.order==''}">
                         <div>ID</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('num_serie')" [ngClass]="{'title_column_order':modifiers.order=='num_serie'}">
                         <div>Número se Série</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('fab')" [ngClass]="{'title_column_order':modifiers.order=='fab'}">
                         <div>Fabricante</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('tipo')" [ngClass]="{'title_column_order':modifiers.order=='tipo'}">
                         <div>Tipo</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('sub_estacao')" [ngClass]="{'title_column_order':modifiers.order=='sub_estacao'}">
                         <div>Subestação</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('data_entrada_operacao')" [ngClass]="{'title_column_order':modifiers.order=='data_entrada_operacao'}">
                         <div>Data de entrada</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('nivel_tensao')" [ngClass]="{'title_column_order':modifiers.order=='nivel_tensao'}">
                         <div>Nível de tensão</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item title_column" (click)="ordenarLista('status')" [ngClass]="{'title_column_order':modifiers.order=='status'}">
                         <div>Status</div>
                     </div>
-                    <div class="col-3 list-group-item title_column">
+                    <div class="col-3 list-group-item title_column" (click)="ordenarLista('obs')" [ngClass]="{'title_column_order':modifiers.order=='obs'}">
                         <div>Observações</div>
                     </div>
-                    <div class="col-1 list-group-item title_column">
+                    <div class="col-1 list-group-item bar_column">
                         <div>Opções</div>
                     </div>
                     
@@ -74,18 +91,29 @@
                         <p class="">{{ equipamento.nivel_tensao}}</p>
                     </div>
                     <div class="col-1">
-                        <p class="">{{ equipamento.status>=1?"Ativo":"Inativo"}}</p>
+                        <p class="">{{ equipamento.status<1?"Ativo":"Inativo"}}</p>
                     </div>
                     <div class="col-3">
                         <p class="">{{ equipamento.obs}}</p>
                     </div>
                     <div class="col-1" >
-                        <button  class="btn btn-dark " (click)="updateEquipamento(equipamento.id)" style="font-size: 10px; border-radius: 0;">Editar</button>
-                        <button (click)="deleteEquipamento(equipamento)" class="btn btn-danger " style="font-size: 10px;border-radius: 0; margin-left: .4em;">Deletar</button>
+                        <button  class="btn btn-dark " (click)="updateEquipamento(equipamento.id)"  style="font-size: 10px; border-radius: 0;">Editar</button>
+                        <button (click)="deleteEquipamento(equipamento)" class="btn btn-danger "   style="font-size: 10px;border-radius: 0; margin-left: .4em;">Deletar</button>
 
                     </div>
                     
                 </div>
+            </div>
+        </div>
+        <div class="col-12 row mt-3">
+            <div class="col-5 ">
+                <button (click)="anteriorPagina()" class="btn btn-primary float-end" [ngClass]="{'disabled':numeroPagina==1}">Anterior</button>
+            </div>
+            <div class="col-2">
+                <h4 class="text-center">Página: {{numeroPagina}}</h4>
+            </div>
+            <div class="col-5">
+                <button (click)="proximaPagina()" class="btn btn-primary" [ngClass]="{'disabled':lastPage}">Próxima</button>
             </div>
         </div>
     </div>

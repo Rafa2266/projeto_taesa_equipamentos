@@ -9,3 +9,9 @@ export class Equipamento{
     status:number;
     obs:string;
 }
+export class Modifiers{
+    fabFilter:string='';
+    tipoFilter:string='';
+    offset:number=0;
+    order:string='';
+}

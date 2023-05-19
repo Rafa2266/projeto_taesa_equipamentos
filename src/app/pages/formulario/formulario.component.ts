@@ -15,6 +15,7 @@ export class FormularioComponent {
 
   equipamentoId:number;
   isEdit:boolean;
+  formEquipamento:FormGroup;
 
   constructor( 
     private formBuilder: FormBuilder,
@@ -26,7 +27,6 @@ export class FormularioComponent {
   }
 
   
-  formEquipamento:FormGroup;
 
   ngOnInit(): void {
     this.setFormToRegister();
@@ -63,7 +63,7 @@ export class FormularioComponent {
       sub_estacao: new FormControl(equipamento.sub_estacao, Validators.required),
       nivel_tensao: new FormControl(equipamento.nivel_tensao, Validators.required),
       data_entrada_operacao: new FormControl(equipamento.data_entrada_operacao, Validators.required),
-      status: new FormControl(equipamento.status==1, Validators.required),
+      status: new FormControl(equipamento.status==0, Validators.required),
       obs: new FormControl(equipamento.obs),
     });
   }
@@ -78,7 +78,7 @@ export class FormularioComponent {
       equipamento.sub_estacao=this.formEquipamento.value.sub_estacao
       equipamento.data_entrada_operacao=this.formEquipamento.value.data_entrada_operacao
       equipamento.nivel_tensao=this.formEquipamento.value.nivel_tensao
-      equipamento.status=this.formEquipamento.value.status?1:0;
+      equipamento.status=this.formEquipamento.value.status?0:1;
       equipamento.obs=this.formEquipamento.value.obs
       if(this.isEdit){
         this.updateEquipamento(equipamento)
